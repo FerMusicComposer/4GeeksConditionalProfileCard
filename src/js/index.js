@@ -27,20 +27,30 @@ function render(variables = {}) {
   // here we ask the logical questions to make decisions on how to build the html
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
+  let name = `${variables.name}`;
+  let lastName = `${variables.lastname}`;
+  let role = `${variables.role}`;
+  let country = `${variables.country}`;
+  let city = `${variables.city}`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
+  if (variables.name == null) name = "Lucy";
+  if (variables.lastname == null) lastName = "Boillet";
+  if (variables.role == null) role = "Web Developer";
+  if (variables.country == null) country = "USA";
+  if (variables.city == null) city = "Miami";
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
+          <h1>${name} ${lastName}</h1>
+          <h2>${role}</h2>
+          <h3>${city}, ${country} </h3>
           <ul class="position-right">
-            <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://twitter.com/Fer_SalamancaM"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/FerMusicComposer"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/in/fernando-salamanca-m-30073ba0/"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/fer_salamanca"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -54,9 +64,11 @@ window.onload = function() {
     // if includeCover is true the algorithm should
     includeCover: true,
     // this is the url of the image that will used as background for the profile cover
-    background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da",
+    background:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMWyWHUYLMvI1wu6nUawUKIC73wnMNokUibQ&usqp=CAU",
     // this is the url for the profile avatar
-    avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
+    avatarURL:
+      "https://pbs.twimg.com/profile_images/1293992742268403713/JyEVEUkn_400x400.jpg",
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
     // social media usernames
